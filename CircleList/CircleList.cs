@@ -3,13 +3,13 @@ using System.IO;
 
 namespace CircleList
 {
-    class Parcipiant : IComparable<Parcipiant> //Интерфейс для более удобного сравнивания
+    class Parcipiant : IComparable<Parcipiant>
     {
         public string Name { get; set; }
         public string Gender { get; set; }
         public Parcipiant Next { get; set; }
 
-        public int CompareTo(Parcipiant par) //Совственно его реализация
+        public int CompareTo(Parcipiant par)
         {
             return Name.CompareTo(par.Name);
         }
@@ -64,7 +64,7 @@ namespace CircleList
             Count++;
         }
     
-        public void Delete(string name)  //Поиск имени и удаление эл-а с этим именем
+        public void Delete(string name) 
         {
             var temp = Temp;
             for (int i = 0; i < Count + 1; i++)
@@ -123,7 +123,7 @@ namespace CircleList
             var temp = Temp;
             while (Count != 1)
             {
-                for (int i = 0; i < k - 1; i++) //Отсчитываем k-ый эл-т
+                for (int i = 0; i < k - 1; i++)
                 {
                     temp = temp.Next;
                 }
@@ -132,7 +132,7 @@ namespace CircleList
             return temp.Next;
         }
 
-        public CircleList[] Gender() //Создаём 2 списка и просто сортируем, мужчин в 1, женщин во 2
+        public CircleList[] Gender()
         {
             var temp = Temp;
             var male = new CircleList();
@@ -142,7 +142,7 @@ namespace CircleList
                 var par = new Parcipiant { Name = temp.Name, Gender = temp.Gender };
                 if (par.Gender == "male")
                 {
-                    AddOrCreate(male, par); //Вспомогательный метод, чтобы код был чище (написан чуть ниже) 
+                    AddOrCreate(male, par); 
                 }
                 else
                 {
